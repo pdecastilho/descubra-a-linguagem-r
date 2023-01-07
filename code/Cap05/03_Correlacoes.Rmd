@@ -1,0 +1,53 @@
+---
+title: "Capítulo 05"
+subtitle: "Aula 03 - Correlações"
+author: "Jessica Temporal"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Carregando pacotes e datasets
+
+```{r}
+pacman::p_load(pacman, rio, tidyverse)
+df <- import("dados/StateData.xlsx") %>%
+  as_tibble() %>%
+  select(instagram:modernDance) %>% 
+  print()
+```
+
+### Matriz de correlação 
+
+```{r}
+cor(df)
+```
+
+### Duas casas decimais
+```{r}
+df %>%
+  cor() %>%
+  round(2)
+```
+
+### Estatística da correlação
+```{r}
+cor.test(df$instagram, df$privacy)
+```
+
+### Visualizando a matriz de correlação
+```{r}
+heatmap(cor(df))
+```
+
+## Limpeza
+
+```{r}
+rm(list = ls())
+p_unload(all)
+detach("package:datasets", unload = TRUE)
+dev.off()
+cat("\014")
+```
+
+Limpeza feita 😉

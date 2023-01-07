@@ -1,0 +1,54 @@
+---
+title: "Capítulo 02"
+subtitle: "Aula 06 - Dados Exemplo"
+author: "Jessica Temporal"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Instalando e carregando pacotes
+
+```{r}
+library(datasets)  # datasets de exemplo
+```
+
+```{r}
+?datasets
+```
+
+```{r}
+library(help="datasets")  # documentação
+```
+
+# Alguns dos dados de exemplo
+
+## Íris
+```{r}
+?iris
+head(iris)
+```
+
+## UCBAdmissions
+```{r}
+?UCBAdmissions
+head(UCBAdmissions)
+```
+
+## Titanic
+```{r}
+?Titanic
+(Titanic)
+```
+
+# Limpeza
+
+```{r}
+rm(list = ls()) 
+# Limpando pacotes carregados com library()
+detach("package:datasets", unload = TRUE)
+dev.off()
+cat("\014")
+```
+
+Limpeza feita ;)

@@ -1,0 +1,40 @@
+---
+title: "Capítulo 04"
+subtitle: "Aula 02 - Transformando variáveis"
+author: "Jessica Temporal"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Carregando pacotes e datasets
+
+```{r}
+pacman::p_load(pacman, tidyverse)
+library(datasets)
+?iris
+head(iris)
+```
+
+### Traduzindo Species
+
+```{r}
+iris %>%
+  mutate(Species.trad = recode(Species, 
+      "setosa" = 1,
+      "virginica" = 2,
+      .default = 3)) %>%
+  select(Species, Species.trad)
+```
+
+## Limpeza
+
+```{r}
+rm(list = ls())
+detach("package:datasets", unload = TRUE)
+dev.off()
+cat("\014")
+```
+
+Limpeza feita 😉
+
